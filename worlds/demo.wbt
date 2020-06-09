@@ -1,0 +1,1568 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation 0.9200617451441122 -0.35855404014267234 -0.1578777546703074 5.3904641493186425
+  position 1.705371334665755 7.01588549768044 6.079152849253349
+}
+TexturedBackground {
+  luminosity 4
+}
+TexturedBackgroundLight {
+  luminosity 0
+}
+RectangleArena {
+  floorSize 6 6
+  floorTileSize 2 2
+  wallThickness 0.1
+  wallHeight 1
+}
+Wall {
+  translation -1 0 -1
+  size 0.2 0.5 4
+}
+Wall {
+  translation 0.8 0 1
+  name "wall(1)"
+  size 0.2 0.5 4
+}
+DEF Robot_arm Robot {
+  translation -2.72599 0.0348586 -2.60009
+  rotation -5.39405997970079e-05 0.9999999962367474 -6.794789974429489e-05 0
+  children [
+    LightSensor {
+      translation 0 -0.01 0.1
+      rotation 0 1 0 -1.58
+      children [
+        Shape {
+          geometry Box {
+            size 0.01 0.02 0.01
+          }
+        }
+      ]
+      name "light_sensor_bot"
+      colorFilter 0.3 0.15 0.1
+    }
+    LightSensor {
+      translation 0.02 0.04 0.09
+      rotation 0 1 0 -1.58
+      children [
+        Shape {
+          geometry Box {
+            size 0.01 0.03 0.01
+          }
+        }
+      ]
+      name "light_sensor_top"
+      colorFilter 0.3 0 0
+    }
+    GPS {
+      name "arm_gps"
+    }
+    DEF arm_part_1 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 69.22879009455785
+        axis 0 1 0
+        anchor 0 0.05 0
+      }
+      device [
+        RotationalMotor {
+          name "arm_motor1"
+        }
+      ]
+      endPoint Solid {
+        translation -1.051117415339208e-09 0.049990257725481484 -1.3240013529902575e-09
+        children [
+          DEF light_sensor_lu_left LightSensor {
+            translation 0.03 0 0.03
+            rotation 0 1 0 -0.7853996938995746
+            children [
+              DEF len Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0 0
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.01 0.01 0.01
+                }
+              }
+            ]
+            name "light_sensor_lu_left"
+            boundingObject USE len
+            physics Physics {
+            }
+            colorFilter 0.3 0 0
+          }
+          DEF light_sensor_lu_right LightSensor {
+            translation -0.03 0 0.03
+            rotation 0 1 0 -2.3561996938995744
+            children [
+              DEF len Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0 0
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.01 0.01 0.01
+                }
+              }
+            ]
+            name "light_sensor_lu_right"
+            boundingObject USE len
+            physics Physics {
+            }
+            colorFilter 0.3 0 0
+          }
+          LightSensor {
+            translation 0 0 0.05
+            rotation 0 1 0 -1.5708003061004252
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0 0
+                  metalness 0
+                }
+                geometry DEF box Box {
+                  size 0.02 0.02 0.02
+                }
+              }
+            ]
+            name "light_sensor1"
+            boundingObject USE box
+            physics Physics {
+            }
+            recognitionColors [
+              1 1 0
+            ]
+            colorFilter 0.3 0 0
+            occlusion TRUE
+          }
+          DEF part2_arm HingeJoint {
+            jointParameters HingeJointParameters {
+              position 1.5699977307455113
+              anchor 0 0.055 0
+            }
+            device [
+              RotationalMotor {
+                name "arm_motor2"
+              }
+            ]
+            endPoint Solid {
+              translation -3.1146818457725016e-10 0.05499806078199238 2.600582700827422e-06
+              rotation 0.5771849526623544 -0.57718689551257 0.5776788191276511 2.0939052807527863
+              children [
+                InertialUnit {
+                  translation 0 0.025 0
+                  children [
+                    DEF lenzaihu Shape {
+                      appearance PBRAppearance {
+                        baseColor 1 0 0
+                        metalness 0
+                      }
+                      geometry Box {
+                        size 0.02 0.02 0.02
+                      }
+                    }
+                  ]
+                  name "motor2_imu"
+                  boundingObject USE lenzaihu
+                  physics Physics {
+                  }
+                }
+                DEF arm3_part HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position 2.633887038521869e-09
+                    axis 0 0 1
+                    anchor 0 0 -0.105
+                  }
+                  device [
+                    RotationalMotor {
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0 0 -0.105
+                    rotation 0.9999999999999983 -3.9078862448319e-08 -3.9078706941891486e-08 1.5708003061003277
+                    children [
+                      DEF part4_aem HingeJoint {
+                        jointParameters HingeJointParameters {
+                          position -1.5700001158077028
+                          axis 0 0 1
+                          anchor 0 -0.105 0
+                        }
+                        device [
+                          RotationalMotor {
+                            name "arm_motor4"
+                          }
+                        ]
+                        endPoint Solid {
+                          translation 0 -0.105 0
+                          rotation 0.5776573789289102 -0.5771976247833327 -0.5771956813018098 2.093937415815396
+                          children [
+                            InertialUnit {
+                              translation 0 -0.02 0
+                              children [
+                                DEF lendan Shape {
+                                  appearance PBRAppearance {
+                                    baseColor 1 0 0
+                                    metalness 0
+                                  }
+                                  geometry Box {
+                                    size 0.02 0.02 0.02
+                                  }
+                                }
+                              ]
+                              name "motor4_imu"
+                              boundingObject USE lendan
+                              physics Physics {
+                              }
+                            }
+                            LightSensor {
+                              translation 0 0 -0.03
+                              rotation 0 1 0 1.5707996938995747
+                              children [
+                                DEF laomu Shape {
+                                  appearance PBRAppearance {
+                                    baseColor 1 0 0
+                                    metalness 0
+                                  }
+                                  geometry Box {
+                                    size 0.01 0.01 0.01
+                                  }
+                                }
+                              ]
+                              name "light_sensor2"
+                              boundingObject USE laomu
+                              physics Physics {
+                              }
+                              colorFilter 0.3 0 0
+                            }
+                            DEF part5_arm HingeJoint {
+                              jointParameters HingeJointParameters {
+                                position -4.2617233756490665e-10
+                                anchor 0.065 0 0
+                              }
+                              device [
+                                RotationalMotor {
+                                }
+                              ]
+                              endPoint Solid {
+                                translation 0.135 5.101574500077878e-10 -1.6358900002733212e-06
+                                rotation -1.8392884710263586e-07 2.902623382894673e-07 0.9999999999999409 1.5708003060923061
+                                children [
+                                  DEF part6 HingeJoint {
+                                    jointParameters HingeJointParameters {
+                                      position -3.67411458909935e-08
+                                      anchor 0 -0.135 0
+                                    }
+                                    device [
+                                      RotationalMotor {
+                                        name "arm_motor6"
+                                      }
+                                    ]
+                                    endPoint Solid {
+                                      translation 2.903779999999578e-10 -0.13499999999998694 1.845315378240852e-06
+                                      rotation -1.838520853814848e-08 1.8370572709888822e-08 0.9999999999999998 1.5699999999999645
+                                      children [
+                                        DEF part7 HingeJoint {
+                                          jointParameters HingeJointParameters {
+                                            position -5.221151589052226e-12
+                                            anchor -0.065 0 0
+                                          }
+                                          device [
+                                            RotationalMotor {
+                                            }
+                                          ]
+                                          endPoint Solid {
+                                            translation -0.065 0 0
+                                            rotation -5.1277714893739726e-08 5.127788755146446e-08 0.9999999999999973 1.5707996938995736
+                                            children [
+                                              LightSensor {
+                                                translation 0 0.045 0
+                                                rotation 0 0 1 1.5707996938995747
+                                                children [
+                                                  DEF lenhh Shape {
+                                                    appearance PBRAppearance {
+                                                      baseColor 1 0 0
+                                                      metalness 0
+                                                    }
+                                                    geometry Box {
+                                                      size 0.02 0.02 0.02
+                                                    }
+                                                  }
+                                                ]
+                                                name "light_sensor3"
+                                                boundingObject USE lenhh
+                                                physics Physics {
+                                                }
+                                                colorFilter 0.3 0 0
+                                              }
+                                              DEF chishi Shape {
+                                                appearance PBRAppearance {
+                                                  metalness 0
+                                                }
+                                                geometry Cylinder {
+                                                  height 0.1
+                                                  radius 0.02
+                                                }
+                                              }
+                                            ]
+                                            boundingObject USE chishi
+                                            physics Physics {
+                                            }
+                                          }
+                                        }
+                                        DEF nilaomu Shape {
+                                          appearance PBRAppearance {
+                                            baseColor 1 1 0.498039
+                                            metalness 0
+                                          }
+                                          geometry Cylinder {
+                                            height 0.04
+                                            radius 0.03
+                                          }
+                                        }
+                                      ]
+                                      boundingObject USE nilaomu
+                                      physics Physics {
+                                      }
+                                    }
+                                  }
+                                  DEF doaplen Shape {
+                                    appearance PBRAppearance {
+                                      metalness 0
+                                    }
+                                    geometry Cylinder {
+                                      height 0.24
+                                      radius 0.02
+                                    }
+                                  }
+                                ]
+                                boundingObject USE doaplen
+                                physics Physics {
+                                }
+                              }
+                            }
+                            DEF nilaodou Shape {
+                              appearance PBRAppearance {
+                                baseColor 1 1 0.498039
+                                metalness 0
+                              }
+                              geometry Cylinder {
+                                height 0.04
+                                radius 0.03
+                              }
+                            }
+                          ]
+                          boundingObject USE nilaodou
+                          physics Physics {
+                          }
+                        }
+                      }
+                      DEF lne Shape {
+                        appearance PBRAppearance {
+                          metalness 0
+                        }
+                        geometry Cylinder {
+                          height 0.15
+                          radius 0.02
+                        }
+                      }
+                    ]
+                    boundingObject USE lne
+                    physics Physics {
+                    }
+                  }
+                }
+                DEF nilaomu Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 1 0.498039
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.04
+                    radius 0.03
+                  }
+                }
+              ]
+              boundingObject USE nilaomu
+              physics Physics {
+              }
+            }
+          }
+          DEF arm Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.04
+            }
+          }
+        ]
+        name "arm"
+        boundingObject USE arm
+        physics Physics {
+        }
+      }
+    }
+    DEF body Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF bo Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    DEF joint1 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 284.6784584800739
+        anchor 0.06 0 0.05
+      }
+      device [
+        DEF rotate RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05999891760558018 7.077623768162167e-05 0.05003105627210508
+        rotation 0.6358261332164448 -0.6353192846060375 0.4382859054620583 2.3148664265952608
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 1 0.498039
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE wheel
+        physics DEF physics_wh Physics {
+        }
+      }
+    }
+    DEF joint2 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 284.6796851267246
+        anchor -0.06 0 0.05
+      }
+      device [
+        DEF rotate RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06000108130955484 6.966785483904978e-05 0.05003564824370559
+        rotation 0.635913864173284 -0.6354082287778128 0.43802961104661053 2.3152979184506046
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    DEF joint3 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 264.7721239296387
+        anchor 0.06 0 -0.05
+      }
+      device [
+        DEF rotate RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06000040587120603 6.644359951897454e-05 -0.04997497050064437
+        rotation 0.3911003420962705 -0.3907884053816194 0.8332616303607596 1.751416320420677
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 1 0.498039
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE wheel
+        physics DEF physics_wh Physics {
+        }
+      }
+    }
+    DEF joint4 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 264.77149787379835
+        anchor -0.06 0 -0.05
+      }
+      device [
+        DEF rotate RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05999959481423889 9.091392386116964e-05 -0.04995787411655766
+        rotation 0.39087845842680063 -0.39056768664233443 0.83346920332352 1.7511729266378013
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 1 0.498039
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE wheel
+        physics DEF physics_wh Physics {
+        }
+      }
+    }
+    DistanceSensor {
+      translation 0.045 0 0.1
+      rotation 0 1 0 -1.57
+      children [
+        DEF shelter Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333326 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_left"
+      boundingObject Box {
+        size 0.01 0.01 0.01
+      }
+      physics Physics {
+      }
+    }
+    DistanceSensor {
+      translation -0.045 0 0.1
+      rotation 0 1 0 -1.57
+      children [
+        DEF shelter Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333326 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_right"
+      boundingObject USE shelter
+      physics Physics {
+      }
+    }
+    DistanceSensor {
+      translation 0.05 0 0
+      children [
+        DEF shelter Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333326 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_back_left"
+      boundingObject USE shelter
+      physics Physics {
+      }
+    }
+    Emitter {
+      translation 0.02 0.025 -0.09
+      children [
+        DEF cao Shape {
+          appearance DEF cao PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF cao Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      boundingObject USE cao
+      physics Physics {
+      }
+      channel 1
+    }
+    Receiver {
+      translation -0.02 0.025 -0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF omm Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      boundingObject USE omm
+      physics Physics {
+      }
+      channel 3
+    }
+    DistanceSensor {
+      translation -0.05 0 0
+      rotation 0 1 0 3.14
+      children [
+        DEF shelter Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333326 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_back_right"
+      boundingObject USE shelter
+      physics Physics {
+      }
+    }
+    InertialUnit {
+      translation 0 0.025 0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0
+            metalness 0
+          }
+          geometry DEF nilaodou Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "imu_angle"
+      boundingObject USE nilaodou
+      physics Physics {
+      }
+    }
+  ]
+  boundingObject USE body
+  physics Physics {
+    mass 50
+    centerOfMass [
+      0 0 0
+    ]
+  }
+  controller "diaonilaomu"
+}
+DEF Server Robot {
+  translation 0.8034758244856492 0.8485428638640746 -0.020764064191451784
+  rotation 0.000904515031550812 -0.9999964629345777 0.0025011938932781095 1.3083133862613276
+  children [
+    DEF body Shape {
+      appearance PBRAppearance {
+      }
+      geometry DEF server_shape Cylinder {
+        height 0.7
+        radius 0.1
+      }
+    }
+    Emitter {
+      translation 0.02 0.025 -0.09
+      children [
+        DEF cao Shape {
+          appearance DEF cao PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF cao Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      boundingObject USE cao
+      physics Physics {
+      }
+      channel 3
+    }
+    Emitter {
+      translation 0.02 0.025 -0.09
+      children [
+        DEF cao Shape {
+          appearance DEF cao PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF cao Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "emitter2"
+      boundingObject USE cao
+      physics Physics {
+      }
+      channel 2
+    }
+    Receiver {
+      translation -0.02 0.025 -0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF omm Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      boundingObject USE omm
+      physics Physics {
+      }
+      channel 1
+    }
+    Receiver {
+      translation -0.02 0.025 -0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF omm Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "receiver2"
+      boundingObject USE omm
+      physics Physics {
+      }
+      channel 2
+    }
+  ]
+  name "robot(1)"
+  boundingObject USE server_shape
+  physics Physics {
+    mass 20
+  }
+  controller "server"
+}
+DEF Robot_dummy Robot {
+  translation 1.98657 0.0388989 0.821356
+  rotation -0.006752207498584817 -0.9999266295683074 0.01005699627429649 2.95289
+  children [
+    DEF fire_1 LED {
+      translation 0.03 0.04 0.07
+      children [
+        PointLight {
+          attenuation 0 0 1
+          color 1 0 0
+          intensity 0.03
+          location 0 0.025 0
+          on FALSE
+          castShadows TRUE
+        }
+        DEF fk Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF len Box {
+            size 0.03 0.03 0.03
+          }
+        }
+      ]
+      name "fire_1"
+      physics Physics {
+      }
+    }
+    DEF fire_2 LED {
+      translation -0.03 0.04 0.07
+      children [
+        PointLight {
+          attenuation 0 0 1
+          color 1 0 0
+          intensity 0.03
+          location 0 0.025 0
+          on FALSE
+          castShadows TRUE
+        }
+        DEF fk Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF len Box {
+            size 0.03 0.03 0.03
+          }
+        }
+      ]
+      name "fire_2"
+      physics Physics {
+      }
+    }
+    DEF fire_3 LED {
+      translation 0.03 0.04 -0.07
+      children [
+        PointLight {
+          attenuation 0 0 1
+          color 0 0 0
+          intensity 0.03
+          location 0 0.025 0
+          on FALSE
+          castShadows TRUE
+        }
+        DEF fk Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF len Box {
+            size 0.03 0.03 0.03
+          }
+        }
+      ]
+      name "fire_3"
+      physics Physics {
+      }
+    }
+    DEF fire_4 LED {
+      translation -0.03 0.04 -0.07
+      children [
+        PointLight {
+          attenuation 0 0 1
+          color 0 0 0
+          intensity 0.03
+          location 0 0.025 0
+          on FALSE
+          castShadows TRUE
+        }
+        DEF fk Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF len Box {
+            size 0.03 0.03 0.03
+          }
+        }
+      ]
+      name "fire_4"
+      physics Physics {
+      }
+    }
+    DEF fire_5 LED {
+      translation 0 0.04 0
+      children [
+        PointLight {
+          attenuation 0 0 1
+          color 0 0 0
+          intensity 0.03
+          location 0 0.025 0
+          on FALSE
+          castShadows TRUE
+        }
+        DEF fk Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF len Box {
+            size 0.03 0.03 0.03
+          }
+        }
+      ]
+      name "fire_5"
+      physics Physics {
+      }
+    }
+    DEF DUMMY_BACK_LATCH Connector {
+      translation 4.40784e-07 0 -0.11
+      rotation 0 1 0 -3.1415853071795863
+      children [
+        Solid {
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 1 0
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.02 0.01 0.01
+              }
+            }
+          ]
+          name "latch_solid"
+        }
+      ]
+      name "DUMMY_BACK_LATCH"
+      model "TOW"
+      recognitionColors [
+        1 1 0
+      ]
+      type "passive"
+      distanceTolerance 0.1
+      axisTolerance 1
+    }
+    LED {
+      translation 0.03 0.03 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 1
+            metalness 0
+            emissiveIntensity 80
+          }
+          geometry DEF led Cylinder {
+            height 0.01
+            radius 0.01
+          }
+        }
+      ]
+      name "ledR"
+    }
+    GPS {
+      name "dummy_gps"
+    }
+    DEF body Shape {
+      appearance PBRAppearance {
+      }
+      geometry DEF bo Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    DEF joint1 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 288.1504640147999
+        anchor 0.06 0 0.05
+      }
+      device [
+        DEF rotate RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05998933139941927 0.0018881019267970125 0.05104665001326132
+        rotation -0.3912129372116995 0.3909035906969853 0.8331547398523271 1.7515413970424174
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 1 0.498039
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    DEF joint2 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 288.13779862366033
+        anchor -0.06 0 0.05
+      }
+      device [
+        DEF rotate RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06000141351860968 0.0017341206101436153 0.05100695781492168
+        rotation 0.3958542628860859 -0.39553785311619233 -0.8287636631194365 4.5264438514917025
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    DEF joint3 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 264.77283716878594
+        anchor 0.06 0 -0.05
+      }
+      device [
+        DEF rotate RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06000012381471098 -0.002095365573562918 -0.050558932277321736
+        rotation 0.3901263571221791 -0.3898145079236577 0.8341738876821873 1.7503409616991603
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 1 0.498039
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    DEF joint4 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 268.22262898069226
+        anchor -0.06 0 -0.05
+      }
+      device [
+        DEF rotate RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.059998631563482084 0.0018038071063643806 -0.04901930739867572
+        rotation -0.6386417451334828 0.6381315953143334 0.4300288227949886 2.328769335794398
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 1 0.498039
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    DistanceSensor {
+      translation 0.045 0 0.1
+      rotation 0 1 0 -1.04
+      children [
+        DEF shelter Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333326 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_left"
+      boundingObject USE shelter
+      physics Physics {
+      }
+    }
+    DistanceSensor {
+      translation -0.045 0 0.1
+      rotation 0 1 0 4.18879
+      children [
+        DEF shelter Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333326 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_right"
+      boundingObject USE shelter
+      physics Physics {
+      }
+    }
+    DistanceSensor {
+      translation 0.05 0 0
+      children [
+        DEF shelter Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333326 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_back_left"
+      boundingObject USE shelter
+      physics Physics {
+      }
+    }
+    Emitter {
+      translation 0.02 0.025 -0.09
+      children [
+        DEF cao Shape {
+          appearance DEF cao PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF cao Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      boundingObject USE cao
+      physics Physics {
+      }
+      channel 1
+    }
+    Receiver {
+      translation -0.02 0.025 -0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF omm Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      boundingObject USE omm
+      physics Physics {
+      }
+      channel 1
+    }
+    DistanceSensor {
+      translation -0.05 0 0
+      rotation 0 1 0 3.14
+      children [
+        DEF shelter Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333326 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_back_right"
+      boundingObject USE shelter
+      physics Physics {
+      }
+    }
+    InertialUnit {
+      translation 0 0.025 0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0
+            metalness 0
+          }
+          geometry DEF nilaodou Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "imu_angle"
+      boundingObject USE nilaodou
+      physics Physics {
+      }
+    }
+  ]
+  name "robot(3)"
+  boundingObject USE body
+  physics Physics {
+    density 1
+    mass 1
+    centerOfMass [
+      0 0 0
+    ]
+  }
+  controller "dummy"
+  supervisor TRUE
+}
+DEF Robot_hook Robot {
+  translation -2.33317 0.0348847 -2.58313
+  rotation 0.8378936434973708 6.191909730462951e-06 -0.5458335297032979 -0.00017580582013748572
+  children [
+    GPS {
+      name "hook_gps"
+    }
+    DEF DUMMY_BACK_LATCH Connector {
+      translation 0 4.88972e-05 0.1
+      rotation -0.0009999994959503811 -0.9999994959503811 -8.99999546355343e-05 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 1 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF HOOK Box {
+            size 0.06 0.01 0.03
+          }
+        }
+      ]
+      name "DUMMY_BACK_LATCH"
+      model "TOW"
+      type "active"
+      distanceTolerance 0.1
+      axisTolerance 1
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+      }
+      device [
+        RotationalMotor {
+          name "camera_motor"
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.05 -0.01
+        rotation -1.7015069550917906e-07 0.9975168158300449 0.07042870250302297 3.14
+        children [
+          Transform {
+            translation 0 0.01 -0.01
+            rotation 1 0 0 0
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.05
+                  radius 0.01
+                }
+              }
+              Camera {
+                rotation 1 0 0 0
+                name "camera1"
+                recognition Recognition {
+                }
+              }
+            ]
+          }
+          Shape {
+            appearance PBRAppearance {
+              roughness 1
+              metalness 0
+            }
+            geometry DEF cam_dock Cylinder {
+              height 0.07
+              radius 0.02
+            }
+          }
+        ]
+        name "solid(4)"
+        boundingObject USE cam_dock
+      }
+    }
+    DEF body Shape {
+      appearance PBRAppearance {
+      }
+      geometry DEF bo Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    DEF joint1 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 284.6781239709962
+        anchor 0.06 0 0.05
+      }
+      device [
+        DEF rotate RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05999891619118469 6.841641392552885e-05 0.05003106641665413
+        rotation 0.6357824201991509 -0.6352756064596475 0.4384126115921362 2.3146537442664434
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 1 0.498039
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE wheel
+        physics DEF physics_wh Physics {
+        }
+      }
+    }
+    DEF joint2 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 284.6800231662121
+        anchor -0.06 0 0.05
+      }
+      device [
+        DEF rotate RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06000108271795246 6.725804943214871e-05 0.05003563802453103
+        rotation 0.635957987367313 -0.635452316910381 0.4379015771117353 2.315512889880049
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    DEF joint3 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 264.7717879377716
+        anchor 0.06 0 -0.05
+      }
+      device [
+        DEF rotate RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.0600004044677136 6.410190434807035e-05 -0.04997495867103795
+        rotation 0.3909816604772562 -0.39066981835160686 0.8333729262458495 1.7512849338354193
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 1 0.498039
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE wheel
+        physics DEF physics_wh Physics {
+        }
+      }
+    }
+    DEF joint4 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 264.77183759494073
+        anchor -0.06 0 -0.05
+      }
+      device [
+        DEF rotate RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05999959628454765 8.852196876416772e-05 -0.04995787720451971
+        rotation 0.390998482266543 -0.39068761499406457 0.8333566909526253 1.7513057367130545
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 1 0.498039
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE wheel
+        physics DEF physics_wh Physics {
+        }
+      }
+    }
+    DistanceSensor {
+      translation 0.045 0 0.1
+      rotation 0 1 0 -1.04
+      children [
+        DEF shelter Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333326 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_left"
+      boundingObject USE shelter
+      physics Physics {
+      }
+    }
+    DistanceSensor {
+      translation -0.045 0 0.1
+      rotation 0 1 0 4.18879
+      children [
+        DEF shelter Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333326 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_right"
+      boundingObject USE shelter
+      physics Physics {
+      }
+    }
+    DistanceSensor {
+      translation 0.05 0 0
+      children [
+        DEF shelter Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333326 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_back_left"
+      boundingObject USE shelter
+      physics Physics {
+      }
+    }
+    Emitter {
+      translation 0.02 0.025 -0.09
+      children [
+        DEF cao Shape {
+          appearance DEF cao PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF cao Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      boundingObject USE cao
+      physics Physics {
+      }
+      channel 1
+    }
+    Receiver {
+      translation -0.02 0.025 -0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry DEF omm Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      boundingObject USE omm
+      physics Physics {
+      }
+      channel 2
+    }
+    DistanceSensor {
+      translation -0.05 0 0
+      rotation 0 1 0 3.14
+      children [
+        DEF shelter Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333326 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_back_right"
+      boundingObject USE shelter
+      physics Physics {
+      }
+    }
+    InertialUnit {
+      translation 0 0.025 0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0
+            metalness 0
+          }
+          geometry DEF nilaodou Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "imu_angle"
+      boundingObject USE nilaodou
+      physics Physics {
+      }
+    }
+  ]
+  name "robot(2)"
+  boundingObject USE body
+  physics Physics {
+    mass 50
+    centerOfMass [
+      0 0 0
+    ]
+  }
+  controller "hook"
+}
