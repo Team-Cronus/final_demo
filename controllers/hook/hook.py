@@ -962,10 +962,10 @@ while robot.step(TIME_STEP) != -1:
         #check if car senses another car
         #if it does, go into collision avoidance mode
         #else, move car on rrt
-        if in_transit:
-            for sensor in ds:
-                if sensor.getValue() < 300:
-                    mode = 6
+        #if in_transit:
+        #    for sensor in ds:
+        #        if sensor.getValue() < 300:
+        #            mode = 6
         if 0 <= mode and mode < 2: 
             move_car_on_rrt()
         

@@ -374,7 +374,7 @@ def move_car_on_rrt():
                       #mode=5
                   else:
                       mode = 0
-              elif i == len_rrt-2:
+              elif i == len_rrt-4:
                   mode = 3
                   #rrt_theta = []
               else:
@@ -1154,7 +1154,7 @@ while robot.step(TIME_STEP) != -1:
             send_fin_task()
             my_pos = gps.getValues()
             my_pos = conv_coords(my_pos)
-            add_obstacle(ccoords,2)
+            add_obstacle(ccoords,(dinfo[2]*10-1))
             end_pos = conv_coords([2.5,0.04,2.0])
             rrt_new(my_pos,end_pos)
             ending = True

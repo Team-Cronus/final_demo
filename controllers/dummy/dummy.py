@@ -78,9 +78,15 @@ avg = 0
 cumulative = 0
 
 #LED stuff
-ledR = supervisor.getLED('fire_2')
+ledR = [None] * 5
+ledR[0] = supervisor.getLED('fire_1')
+ledR[1] = supervisor.getLED('fire_2')
+ledR[2] = supervisor.getLED('fire_3')
+ledR[3] = supervisor.getLED('fire_4')
+ledR[4] = supervisor.getLED('fire_5')
 led_on = 0
-ledR.set(led_on)
+led_num = random.randint(0,4)
+
 
 
 def isStuck(new_data, prev_data):
@@ -151,10 +157,12 @@ while supervisor.step(TIME_STEP) != -1:
     if key == keyboard.LEFT:
         if led_on == 0:
             led_on = 1
-            ledR.set(led_on)
+            ledR[led_num].set(led_on)
+            #led_num = randint(0,4)
         else:
             led_on = 0
-            ledR.set(led_on)
+            ledR[led_num].set(led_on)
+            led_num = random.randint(0,4)
     if key == keyboard.UP:
             move(wheels,MOVE)
     #print(led_on)        
